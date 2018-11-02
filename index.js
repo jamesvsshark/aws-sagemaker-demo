@@ -25,6 +25,10 @@ window.onload = function() {
 
   var sageMaker = new window.AWS.SageMaker();
 
+  sageMaker.listNotebookInstances({}, function(err, data){
+    console.log(err, data);
+  });
+
   sageMaker.createPresignedNotebookInstanceUrl(
     { NotebookInstanceName: "notebook" },
     function(err, data) {
